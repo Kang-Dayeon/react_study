@@ -1,25 +1,58 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  const Count = () => {
+    const [counter, setCount] = useState(0)
+    const [list, chengeList] = useState([])
+    const [newList, setNewList] = useState([...list])
+    let newCounter = ['list1']
+    let newCounter2 = ['list2']
+    const pCount = () => {
+      setCount(counter + 1)
+      reverce()
+    }
+    const mCount = () => {
+      setCount(counter - 1)
+      reverce()
+    }
+    const reverce = () => {
+      console.log(newList.indexOf())
+    }
+    
+    
+    useEffect(()=>{
+      chengeList([...list,newCounter])
+      setNewList([...newList,newCounter2])
+      // console.log(list)
+      return () => {
+        console.log('end');
+      }
+    }, [counter])
+    return (
+      <div>
+        <h1>{counter}</h1>
+        <button onClick={ pCount }>+1</button>
+        <button onClick={ mCount }>-1</button>
+        <div className='list-box'>
+          <div className='list'>
+          {
+            list.length > 0 && list.map((item, sum) => {
+              return <p>{item}:{sum}</p>
+            })
+          }
+          </div>
+          <div className='list'>
+          {
+          newList.length > 0 && newList.map((item, sum) => {
+              return <p>{item}:{sum}</p>
+            })
+          }
+          </div>
+        
+        </div>
+      </div>
+    );
+  }
 
-export default App;
+export default Count;
