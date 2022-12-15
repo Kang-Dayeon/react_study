@@ -6,9 +6,9 @@ import { useEffect, useState } from 'react';
     // 2. 화면에 배열 뿌리기
     // 3. 배열을 복사해서 역방향으로 뿌려주기
     const [listIndex, setListIndex] = useState(0)
-    const [newList, setNewList] = useState([])
     const [counter, setCount] = useState(0)
-    const [list, chengeList] = useState([])
+    const [newList, setNewList] = useState([])
+    const [list, setList] = useState([])
 
     const pCount = () => {
       setCount(counter + 1)
@@ -38,7 +38,7 @@ import { useEffect, useState } from 'react';
     useEffect(()=>{
       listIndexCounter()
       listAdd()
-      chengeList([...list])
+      setList([...list])
       reverse()
       // console.log(newList)
       return () => {
