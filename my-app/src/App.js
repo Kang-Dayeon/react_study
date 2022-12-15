@@ -1,30 +1,46 @@
-import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
 
   const Count = () => {
+    // 1. 클릭할때마다 배열 추가
+    // 2. 화면에 배열 뿌리기
+    // 3. 배열을 복사해서 역방향으로 뿌려주기
+    const [listIndex, setListIndex] = useState(0)
+    const [newList, setNewList] = useState([])
     const [counter, setCount] = useState(0)
     const [list, chengeList] = useState([])
-    const [newList, setNewList] = useState([...list])
-    let newCounter = ['list1']
-    let newCounter2 = ['list2']
+
     const pCount = () => {
       setCount(counter + 1)
-      reverce()
     }
     const mCount = () => {
       setCount(counter - 1)
-      reverce()
     }
-    const reverce = () => {
-      console.log(newList.indexOf())
+    const listIndexCounter = () => {
+      setListIndex( listIndex + 1)
     }
-    
+    const listAdd = () =>{
+      list.push({
+        id: listIndex,
+        text: 'num : '
+      })
+    }
+    const reverse = () => {
+      let listCopy = [...list]
+      let result = listCopy.sort((a, b) => {
+        if( a.id > b.id) return -1
+        else if( b.id > a.id ) return 1
+        else return 0
+      })
+      setNewList([...result])
+    }
     
     useEffect(()=>{
-      chengeList([...list,newCounter])
-      setNewList([...newList,newCounter2])
-      // console.log(list)
+      listIndexCounter()
+      listAdd()
+      chengeList([...list])
+      reverse()
+      // console.log(newList)
       return () => {
         console.log('end');
       }
@@ -37,15 +53,15 @@ import { useEffect, useState } from 'react';
         <div className='list-box'>
           <div className='list'>
           {
-            list.length > 0 && list.map((item, sum) => {
-              return <p>{item}:{sum}</p>
+            list.length > 0 && list.map((item) => {
+              return <p>{[item.text,item.id]}</p>
             })
           }
           </div>
           <div className='list'>
           {
-          newList.length > 0 && newList.map((item, sum) => {
-              return <p>{item}:{sum}</p>
+            newList.length > 0 && newList.map((item) => {
+              return <p>{[item.text,item.id]}</p>
             })
           }
           </div>
