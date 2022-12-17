@@ -17,7 +17,7 @@ ul,li{
   padding: 5px 5px;
   width: 300px;
 }
-.todo-form button{
+button{
   margin-left: 10px;
   padding: 8px 15px;
   background: #000;

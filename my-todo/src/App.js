@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react';
 
 function App() {
   // 1. 인풋박스에서 입력후 엔터치면 화면에 뿌려주기
-  const [todos, setTodos] = useState([]) 
+  const [todos, setTodos] = useState([])
+  // const [nweTodos, setNewTodos] = useState([])
   const [id, setId] = useState(0)
   const [inputValue, setInputValue] = useState([])
   const onClick = (e) => {
@@ -16,12 +17,15 @@ function App() {
           text: inputValue,
         })
   }
-  // useEffect(()=>{
-  //   console.log(todos)
-  //   return () => {
-  //     console.log(inputValue);
-  //   }
-  // }, [todos])
+  const reverce = (e) => {
+    e.preventDefault()
+    const result = todos.sort((a,b) => {
+      if(a.id > b.id) return -1
+      else if(b.id > a.id) return 1
+      else return 0
+    })
+    setTodos([...result])
+  }
   return (
     <div className="App">
       <h1 className="title">Todo List</h1>
@@ -32,6 +36,8 @@ function App() {
         onChange={(e) => setInputValue(e.target.value)}
         />
         <button onClick={onClick}>Add</button>
+        <button onClick={reverce}>역순정렬</button>
+        <button>가나다정렬</button>
       </form>
       <ul className="list-wrap">
         {
