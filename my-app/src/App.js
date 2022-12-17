@@ -26,8 +26,8 @@ import { useEffect, useState } from 'react';
       })
     }
     const reverse = () => {
-      let listCopy = [...list]
-      let result = listCopy.sort((a, b) => {
+      const listCopy = [...list]
+      const result = listCopy.sort((a, b) => {
         if( a.id > b.id) return -1
         else if( b.id > a.id ) return 1
         else return 0

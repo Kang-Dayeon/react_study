@@ -9,9 +9,11 @@ ul,li{
   margin: 30px auto;
   padding: 30px;
   max-width: 800px;
-  border: 1px solid #000;
   border-radius: 20px;
   text-align: center;
+}
+.todo-form{
+  margin-top: 20px;
 }
 .todo-form input{
   padding: 5px 5px;
@@ -30,9 +32,11 @@ button{
 }
 .todo-list{
   margin-top: 10px;
+  padding: 5px;
   text-align: left;
   word-wrap: break-word;
   word-break: keep-all;
+  border-bottom: 1px solid lightgray;
 }
 .todo-list span{
   margin-right: 15px;
