@@ -1,7 +1,6 @@
 import './App.css';
 import { useState } from 'react';
 
-
 function App() {
   const [todos, setTodos] = useState([])
   const [inputValue, setInputValue] = useState([])
@@ -10,13 +9,27 @@ function App() {
   const todoAdd = (e) => {
     setInputValue('')
     e.preventDefault()
-    setId(id + 1)
-    todos.push({
-          id : id,
-          text: inputValue,
-        })
+    if(inputValue == ''){
+      alert("내용을 입력 하세요")
+    } else {
+      setId(id + 1)
+      todos.push({
+            id : id,
+            text: inputValue,
+          })
+    }
   }
-  // 역순 정렬 함수
+  // 오름차순 함수
+  const sortList = (e) => {
+    e.preventDefault()
+    const result = todos.sort((a,b) => {
+      if(a.id > b.id) return 1
+      else if(b.id > a.id) return -1
+      else return 0
+    })
+    setTodos([...result])
+  }
+  // 내림차순 함수
   const reverce = (e) => {
     e.preventDefault()
     const result = todos.sort((a,b) => {
@@ -35,6 +48,11 @@ function App() {
     })
     setTodos([...result])
   }
+  // 리스트삭제
+  const del = (todo, e) => {
+    e.preventDefault()
+    setTodos(todos.filter((i) => i.id !== todo.id))
+  }
   return (
     <div className="App">
       <h1 className="title">Todo List</h1>
@@ -45,13 +63,20 @@ function App() {
         onChange={(e) => setInputValue(e.target.value)}
         />
         <button onClick={todoAdd}>Add</button>
-        <button onClick={reverce}>역순정렬</button>
+        <button onClick={sortList}>오름차순</button>
+        <button onClick={reverce}>내림차순</button>
         <button onClick={textSort}>가나다정렬</button>
       </form>
       <ul className="list-wrap">
         {
           todos.map((todo) => {
-            return <li className="todo-list"><span>{todo.id}</span>{todo.text}</li>
+            return <li className="todo-list">
+                    <div className='todo-info'>
+                      <span>{todo.id}.</span>
+                      <p>{todo.text}</p>
+                    </div>
+                    <button className='del' onClick={(e)=>{del(todo,e)}}>X</button>
+                  </li>
           })
         }
       </ul>

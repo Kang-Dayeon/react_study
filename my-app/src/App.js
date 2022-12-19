@@ -16,10 +16,8 @@ import { useEffect, useState } from 'react';
     const mCount = () => {
       setCount(counter - 1)
     }
-    const listIndexCounter = () => {
-      setListIndex( listIndex + 1)
-    }
     const listAdd = () =>{
+      setListIndex( listIndex + 1)
       list.push({
         id: listIndex,
         text: 'num : '
@@ -36,7 +34,6 @@ import { useEffect, useState } from 'react';
     }
     
     useEffect(()=>{
-      listIndexCounter()
       listAdd()
       setList([...list])
       reverse()

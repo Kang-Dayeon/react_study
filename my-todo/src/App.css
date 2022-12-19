@@ -31,6 +31,8 @@ button{
   width: 500px;
 }
 .todo-list{
+  display: flex;
+  justify-content: space-between;
   margin-top: 10px;
   padding: 5px;
   text-align: left;
@@ -40,4 +42,8 @@ button{
 }
 .todo-list span{
   margin-right: 15px;
+}
+.todo-info{
+  display: flex;
+  align-items: center;
 }
