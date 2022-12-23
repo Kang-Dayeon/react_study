@@ -1,15 +1,16 @@
 import './App.css';
 // import { useState,useEffect } from 'react';
-import LightOne from './component/light01'
-import LightTwo from './component/light02'
+import Light from './component/light'
 
  const LightRoom = () => {
    return (
      <>
        <div className='light-room-wrap'>
          <div className='light-room'>
-           <LightOne />
-           <LightTwo />
+           <Light />
+           <Light />
+           <Light />
+           <Light />
          </div>
        </div>
      </>

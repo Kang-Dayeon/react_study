@@ -1,7 +1,8 @@
 import '../App.css';
 import { useState,useEffect } from 'react';
 
-const LightTwo = () => {
+const Light = () => {
+  // 1. 부모 클릭시 자식도 컬러 변경
   const [changeData, setChangeData] = useState(false)
   const changeBg = (e) => {
     setChangeData((e) => !e)
@@ -13,7 +14,7 @@ const LightTwo = () => {
           className={`light-parents ${(changeData === true)? 'bg-red' : ''}`}
           onClick={changeBg}
         ></div>
-        <LightChildTwo
+        <LightChild
           state = {changeData}
           changeColor = {changeBg}
         />
@@ -22,7 +23,7 @@ const LightTwo = () => {
   );
 }
 
-const LightChildTwo = (props) => {
+const LightChild = (props) => {
   const [childState,setChildState] = useState(props.state)
   const [lightChild, setLightChild] = useState([
     {id: 0, bg : 'bg-yellow'},
@@ -45,4 +46,4 @@ const LightChildTwo = (props) => {
     </>
   )
 }
-export default LightTwo;
+export default Light;

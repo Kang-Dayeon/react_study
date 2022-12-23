@@ -35,7 +35,7 @@ ul,li{
 }
 .light-parents,.light-child{
   position: relative;
-  margin-left: 20px;
+  margin-left: 40px;
   width: 100px;
   height: 100px;
   background: rgb(244,255,247);
