@@ -7,7 +7,7 @@ function useColorChange(initialForm) {
       setColor(color)
     }
   );
-  return [setColor,changeColor]
+  return [changeColor]
 }
 
 export default useColorChange
