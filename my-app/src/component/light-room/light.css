@@ -1,0 +1,62 @@
+
+/*Light*/
+.light-room-wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+}
+.light-room{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.light-box{
+    display: flex;
+    justify-content: center;
+}
+.light-parents,.light-child{
+    position: relative;
+    margin-left: 40px;
+    width: 100px;
+    height: 100px;
+    background: rgb(244,255,247);
+    background: radial-gradient(circle, rgba(244,255,247,1) 0%, rgba(255,255,255,1) 15%, rgba(255,255,255,1) 41%, rgba(233,233,233,1) 82%);
+    border-radius: 50%;
+}
+.light-parents:after,.light-child:after{
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 110px;
+    height: 110px;
+    background: rgb(244,255,247);
+    background: radial-gradient(circle, rgba(244,255,247,1) 0%, rgba(255,255,255,1) 15%, rgba(255,255,255,1) 41%, rgba(233,233,233,1) 82%);
+    -webkit-filter: blur(5px);
+    border-radius: 50%;
+    content: '';
+}
+.light-child-list{
+    display: flex;
+}
+.bg-red,.bg-red:after{
+    background: rgb(255,244,254);
+    background: radial-gradient(circle, rgba(255,244,254,1) 0%, rgba(255,198,198,1) 15%, rgba(255,113,148,1) 41%, rgba(255,69,69,1) 82%);
+}
+.bg-yellow,.bg-yellow:after{
+    background: rgb(255,255,244);
+    background: radial-gradient(circle, rgba(255,255,244,1) 0%, rgba(249,255,198,1) 15%, rgba(255,234,113,1) 41%, rgba(255,181,69,1) 82%);
+}
+.bg-blue,.bg-blue:after{
+    background: rgb(244,244,255);
+    background: radial-gradient(circle, rgba(244,244,255,1) 0%, rgba(204,198,255,1) 15%, rgba(113,132,255,1) 41%, rgba(100,69,255,1) 82%);
+}
+
+.bg-green,.bg-green:after{
+    background: rgb(244,255,247);
+    background: radial-gradient(circle, rgba(244,255,247,1) 0%, rgba(172,233,170,1) 15%, rgba(100,208,92,1) 41%, rgba(65,182,35,1) 82%);
+}

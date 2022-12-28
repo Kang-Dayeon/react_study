@@ -1,0 +1,6 @@
+.list-box{
+    display: flex;
+}
+.list:first-child{
+    margin-right: 20px;
+}

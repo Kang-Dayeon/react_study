@@ -1,21 +1,14 @@
 import './App.css';
-// import { useState,useEffect } from 'react';
-import Light from './component/light'
+// import LightRoom from './component/light-room/lightRoom'
+import Snow from './component/snowflake/snow';
 
- const LightRoom = () => {
+ const App = () => {
+
    return (
      <>
-       <div className='light-room-wrap'>
-         <div className='light-room'>
-           <Light />
-           <Light />
-           <Light />
-           <Light />
-         </div>
-       </div>
+       <Snow />
      </>
    )
  }
 
-
-export default LightRoom;
+export default App;

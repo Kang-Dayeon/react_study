@@ -1,4 +1,5 @@
-import './App.css';
+import '../../App.css';
+import './count.css';
 import { useEffect, useState } from 'react';
 
 const Count = () => {
