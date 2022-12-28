@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import useColorChange from '../../hooks/useColorChange'
 import styled, { keyframes } from 'styled-components';
 import '../../App.css';
 import  './snow.css';
@@ -6,7 +7,7 @@ import  './snow.css';
 const Snow = () => {
   const snowNum = Array.from(Array(200), (index) => index + 1);
   const screenX = window.innerWidth;
-  const [bgColor,setBgColor] = useState('#fff');
+  const [bgColor, colorWhite, colorRed] = useColorChange()
   const dropSnow = keyframes`
     0% {}
     100% {
@@ -23,12 +24,6 @@ const Snow = () => {
     border-radius: 100%;
     animation: ${dropSnow} 10s ease-in infinite;
   `
-  const colorWhite = () => {
-     setBgColor('#fff')
-  }
-  const colorRed = () => {
-    setBgColor('#de1b1f')
-  }
 
   return (
     <>

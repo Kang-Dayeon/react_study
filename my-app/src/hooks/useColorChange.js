@@ -1,13 +1,14 @@
 import {useState, useCallback} from 'react'
 
-function useColorChange(initialForm) {
-  const [color, setColor] = useState(initialForm)
-  const changeColor = useCallback(
-    () => {
-      setColor(color)
+function useColorChange() {
+  const [bgColor,setBgColor] = useState('#fff');
+  const colorWhite = () => {
+      setBgColor('#fff')
     }
-  );
-  return [changeColor]
+  const colorRed = () => {
+      setBgColor('#de1b1f')
+    }
+  return [bgColor,colorWhite,colorRed]
 }
 
 export default useColorChange
