@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  .light-box{
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+  }
+  .bg-red{
+    background-color: red;
+  }
+  .light-child{
+    width: 20px;
+    height: 20px;
+    border: 1px solid #222;
+  }
