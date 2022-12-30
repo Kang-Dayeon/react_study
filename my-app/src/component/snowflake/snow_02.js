@@ -4,7 +4,7 @@ import styled, { keyframes } from 'styled-components';
 import '../../App.css';
 import  './snow.css';
 
-const Snow = () => {
+const SnowTwo = () => {
   const snowNum = Array.from(Array(200), (index) => index + 1);
   const screenX = window.innerWidth;
   const [bgColor, colorWhite, colorRed] = useColorChange()
@@ -44,4 +44,4 @@ const Snow = () => {
 
 }
 
-export default Snow;
+export default SnowTwo;
