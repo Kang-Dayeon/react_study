@@ -1,4 +1,4 @@
-// import { useState } from 'react';
+import React from 'react';
 import useColorChange from '../../hooks/useColorChange'
 import styled, { keyframes } from 'styled-components';
 import '../../App.css';
