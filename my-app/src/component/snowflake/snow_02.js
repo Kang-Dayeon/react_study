@@ -7,7 +7,7 @@ import  './snow.css';
 const SnowTwo = () => {
   const snowNum = Array.from(Array(200), (index) => index + 1);
   const screenX = window.innerWidth;
-  const [bgColor, colorWhite, colorRed] = useColorChange()
+  const [bgColor,onChange] = useColorChange('#fff');
   const dropSnow = keyframes`
     0% {}
     100% {
@@ -27,8 +27,10 @@ const SnowTwo = () => {
 
   return (
     <>
-      <button onClick={colorWhite}>white</button>
-      <button onClick={colorRed}>red</button>
+      <div className="button-wrap">
+        <button onClick={onChange} value="#fff">white</button>
+        <button onClick={onChange} value="#FF0000">red</button>
+      </div>
       {snowNum.map((item) => (
         <SnowFlake
           style={{

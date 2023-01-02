@@ -5,9 +5,22 @@
 ul,li{
   list-style: none;
 }
-.app{
-  background-color: #fff;
+a {
+  text-decoration: none;
 }
-.home{
-  background-color: #fff;
+.app{
+  background-color: #000;
+}
+.app ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: white;
+}
+.app ul li a{
+  display: block;
+  padding: 10px;
+  border: 1px solid #000;
+  color: #000;
 }

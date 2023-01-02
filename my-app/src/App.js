@@ -1,10 +1,8 @@
 import './App.css';
 import React from 'react';
-import { Route } from 'react-router-dom';
-// import LightRoom from './component/light-room/lightRoom'
-import Home from './component/Home/home';
+import {Route, Link, Routes} from 'react-router-dom'
 import Snow from './component/snowflake/snow';
-import SnowTwo from './component/snowflake/snow';
+import SnowTwo from './component/snowflake/snow_02';
 
  const App = () => {
 
@@ -12,18 +10,18 @@ import SnowTwo from './component/snowflake/snow';
      <div className='app'>
       <ul>
         <li>
-          <link to="/">Home</link>
+          <Link to="/snow01">Snow01</Link>
         </li>
         <li>
-          <link to="/snow01">Snow01</link>
-        </li>
-        <li>
-          <link to="/snow02">Snow02</link>
+          <Link to="/snow02">Snow02</Link>
         </li>
       </ul>
-      <Route exact path="/" component={ Home }></Route>
-      <Route path="/snow01" component={ Snow }></Route>
-      <Route path="/snow02" component={ SnowTwo }></Route>
+
+       <Routes>
+         <Route path="/snow01" element={ <Snow /> }></Route>
+         <Route path="/snow02" element={ <SnowTwo /> }></Route>
+       </Routes>
+
      </div>
    )
  }
