@@ -31,7 +31,7 @@ const Snow = () => {
         <button onClick={onChange} value="#fff">white</button>
         <button onClick={onChange} value="#0037FF">blue</button>
       </div>
-      {snowNum.map((item) => (
+      {snowNum.map(() => (
         <SnowFlake
           style={{
             left : Math.random() * screenX + 'px',
