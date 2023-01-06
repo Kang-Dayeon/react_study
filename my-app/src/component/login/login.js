@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './login.css'
 
-const LoginPage = () => {
+const LoginPage = (props) => {
   const userData = [
     {
       name: "정주호",
@@ -40,18 +40,29 @@ const LoginPage = () => {
       ]
     }
   ]
-  const [id, setId] = useState(null)
-  const [pw, setPw] = useState(null)
-  const onLogin = (e) => {
-    e.preventDefault()
-    const user = userData.filter(list => list.loginId === id && list.password === pw)
-    console.log(user)
-  }
+
+  const [id, setId] = useState("")
+  const [pw, setPw] = useState("")
   const handleId = (e) => {
     setId(e.target.value)
   }
   const handlePw = (e) => {
     setPw(e.target.value)
+  }
+  const onLogin = (e) => {
+    e.preventDefault();
+    props.setUser(userData.filter(list => list.loginId === id && list.password === pw));
+    if(props.user.length > 0) {
+      props.setIsLogin(true)
+    } else if (props.user === []) {
+      alert("정보가 일치하지 않습니다.")
+    } else if (id === "") {
+      alert("아이디를 입력하세요.")
+    } else if (pw === "") {
+      alert("비밀번호를 입력하세요.")
+    } else {
+      alert("아이디와 비밀번호를 입력하세요.")
+    }
   }
     return (
         <div className="login-page">
@@ -59,7 +70,7 @@ const LoginPage = () => {
             <h2>Login</h2>
             <form className="login-form">
               <input id="id" type="text" value={id} onChange={handleId} placeholder="아이디를 입력해주세요."></input>
-              <input id="pw" type="text" value={pw} onChange={handlePw} placeholder="비밀번호를 입력해주세요."></input>
+              <input id="pw" type="password" value={pw} onChange={handlePw} placeholder="비밀번호를 입력해주세요."></input>
               <button type="submit" onClick={onLogin}>LOGIN</button>
             </form>
           </div>

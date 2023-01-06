@@ -1,30 +1,45 @@
 import './App.css';
-import React from 'react';
-import { Route } from 'react-router-dom';
-// import LightRoom from './component/light-room/lightRoom'
-import Snow from './component/snowflake/snow';
-import SnowTwo from './component/snowflake/snow';
+import React, { useState, useEffect } from 'react'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 import LoginPage from './component/login/login'
+import UserInfo from './component/userInfo/userInfo'
 
  const App = () => {
+   const [user, setUser] = useState([])
+   const [isLogin, setIsLogin] = useState(false)
+   const navigate = useNavigate();
+   const login = () => {
+       if(isLogin === false) {
+         navigate("/")
+       } else {
+         navigate("/userinfo")
+       }
+   }
+   useEffect(() => {
+     login()
+     console.log(isLogin)
+     // return () => {
+     //   console.log(isLogin)
+     // }
+   }, [user])
 
    return (
      <div className='app'>
-      {/*<ul>*/}
-      {/*  <li>*/}
-      {/*    <link to="/">Home</link>*/}
-      {/*  </li>*/}
-      {/*  <li>*/}
-      {/*    <link to="/snow01">Snow01</link>*/}
-      {/*  </li>*/}
-      {/*  <li>*/}
-      {/*    <link to="/snow02">Snow02</link>*/}
-      {/*  </li>*/}
-      {/*</ul>*/}
-      {/*<Route exact path="/" component={ Home }></Route>*/}
-      {/*<Route path="/snow01" component={ Snow }></Route>*/}
-      {/*<Route path="/snow02" component={ SnowTwo }></Route>*/}
-       <LoginPage />
+       <Routes>
+         <Route path= "/" element={
+           <LoginPage
+             user = {user}
+             setUser = {setUser}
+             setIsLogin = { setIsLogin }
+           />
+         }></Route>
+         <Route path="/userinfo" element={
+           <UserInfo
+            user = {user}
+           />
+         }></Route>
+       </Routes>
+
      </div>
    )
  }
