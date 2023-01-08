@@ -1,4 +1,4 @@
-userData = [
+export const userData = [
 	{
 		name: "정주호",
 		loginId: "meju7015",

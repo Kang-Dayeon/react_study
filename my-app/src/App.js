@@ -5,7 +5,7 @@ import LoginPage from './component/login/login'
 import UserInfo from './component/userInfo/userInfo'
 
  const App = () => {
-   const [user, setUser] = useState([])
+  //  const [user, setUser] = useState([])
    const [isLogin, setIsLogin] = useState(false)
    const navigate = useNavigate();
    const login = () => {
@@ -15,32 +15,28 @@ import UserInfo from './component/userInfo/userInfo'
          navigate("/userinfo")
        }
    }
+
    useEffect(() => {
      login()
      console.log(isLogin)
      // return () => {
      //   console.log(isLogin)
      // }
-   }, [user])
+   }, [isLogin])
 
    return (
-     <div className='app'>
-       <Routes>
-         <Route path= "/" element={
-           <LoginPage
-             user = {user}
-             setUser = {setUser}
-             setIsLogin = { setIsLogin }
-           />
-         }></Route>
-         <Route path="/userinfo" element={
-           <UserInfo
-            user = {user}
-           />
-         }></Route>
-       </Routes>
-
-     </div>
+      <div className='app'>
+        <Routes>
+          <Route path= "/" element={
+            <LoginPage
+              setIsLogin = { setIsLogin }
+            />
+          }></Route>
+          <Route path="/userinfo" element={
+            <UserInfo/>
+          }></Route>
+        </Routes>
+      </div>
    )
  }
 

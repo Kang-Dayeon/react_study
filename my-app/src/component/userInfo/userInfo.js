@@ -1,14 +1,14 @@
 import React from 'react'
 
-const UserInfo = (info) => {
-  const userInfo = info.user[0]
+const UserInfo = () => {
+  const [user] = useAuth()
   return (
     <>
-      <h1>안녕하세요!{userInfo.name}님</h1>
+      <h1>안녕하세요!{user.name}님</h1>
       <p>회원 정보</p>
       <ul>
-        <li>Phone : {userInfo.phoneNumber}</li>
-        {(userInfo.isAdmin) ? <li>권한 : 관리자</li> : <li>권한 : 일반회원</li>}
+        <li>Phone : {user.phoneNumber}</li>
+        {(user.isAdmin) ? <li>권한 : 관리자</li> : <li>권한 : 일반회원</li>}
       </ul>
     </>
   )
