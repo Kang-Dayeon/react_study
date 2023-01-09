@@ -1,0 +1,20 @@
+.user-info__wrap{
+    padding: 30px;
+}
+.user-info__box p {
+    font-size: 25px;
+    font-weight: bold;
+}
+.user-info__box{
+    margin: 20px auto;
+    padding: 20px 40px;
+    width: 400px;
+    border: 1px solid #fff;
+}
+.user-info__box ul{
+    margin-top: 20px;
+    text-align: left;
+}
+.user-info__box ul li {
+    font-size: 18px;
+}

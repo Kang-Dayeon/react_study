@@ -2,13 +2,13 @@ import React from 'react'
 import {useAuth, useLogin} from '../../context/AuthContext'
 import './userInfo.css'
 
-const UserInfo = () => {
+const UserInfoTwo = () => {
   const [user] = useAuth()
   const [,,logout] = useLogin()
 
   return (
     <div className="user-info__wrap">
-      <h1>Page01</h1>
+      <h1>Page02</h1>
       <h1>안녕하세요, {user[0].name}님!</h1>
       <div className="user-info__box">
         <p>[ 회원 정보 ]</p>
@@ -26,4 +26,4 @@ const UserInfo = () => {
   )
 }
 
-export default UserInfo
+export default UserInfoTwo

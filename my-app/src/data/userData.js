@@ -34,5 +34,23 @@ export const userData = [
 				permission: "read"
 			}
 		]
+	},
+	{
+		name: "강다연",
+		loginId: "dykang",
+		password: "123123123",
+		phoneNumber: "010-9934-1233",
+		isAdmin: true,
+		accessToken: "43c1051a9b9d8e7779123328182e4",
+		abilities: [
+			{
+				action: "dashboard",
+				permission: "read"
+			},
+			{
+				action: "users",
+				permission: "read"
+			}
+		]
 	}
 ]
