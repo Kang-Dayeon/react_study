@@ -11,10 +11,10 @@ import Home from './component/Home/home'
    const [isLogin] = useLogin()
    const navigate = useNavigate();
    const login = () => {
-       if(isLogin === false) {
-         navigate("/login")
-       } else {
+       if(isLogin === true) {
          navigate("/userinfo")
+       } else {
+         navigate("/")
        }
    }
 
