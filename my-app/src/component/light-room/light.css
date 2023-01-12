@@ -5,8 +5,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100vh;
-    background-color: black;
+    height: auto;
 }
 .light-room{
     width: 100%;
@@ -18,6 +17,7 @@
 .light-box{
     display: flex;
     justify-content: center;
+    margin-top: 50px;
 }
 .light-parents,.light-child{
     position: relative;

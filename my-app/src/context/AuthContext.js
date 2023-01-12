@@ -2,47 +2,38 @@ import {createContext, useContext, useState} from 'react';
 import { userData } from "../data/userData";
 
 const AuthContext = createContext(null)
-const ControlContext = createContext(null)
 
 export function AuthProvider({children}) {
     const [user, setUser] = useState([])
     const [isLogin, setIsLogin] = useState(false)
 
-    const onLogin = () => {
-        if(user.length > 0) {
-            setIsLogin(true)
-        }
-    }
-    const logout = () => {
-        setUser([])
-        setIsLogin(false)
-    }
-    const action = (id, pw) => {
-        setUser(userData.filter(list => list.loginId === id && list.password === pw))
-    }
-    const value = [user, action]
-    const loginValue = [isLogin, onLogin, logout]
+    const value = [user, setUser, isLogin, setIsLogin]
+
     return (
-      <ControlContext.Provider value={loginValue}>
-          <AuthContext.Provider value={value}>
-              {children}
-          </AuthContext.Provider>
-      </ControlContext.Provider>
+      <AuthContext.Provider value={value}>
+          {children}
+      </AuthContext.Provider>
     )
 }
 
 export function useAuth(){
     const value = useContext(AuthContext)
-    if(value === undefined){
-        throw new Error('error')
+    console.log(value)
+    const action = (id, pw) => {
+        value[1](...value[0],userData.filter(list => list.loginId === id && list.password === pw))
     }
-    return value
-}
+    const onLogin = () => {
+        if(value[0].length > 0) {
+            value[3](true)
+        }
+    }
+    const logout = () => {
+        value[1]([])
+        value[3](false)
+    }
 
-export function useLogin() {
-    const value = useContext(ControlContext)
     if(value === undefined){
         throw new Error('error')
     }
-    return value
+    return [value, action, onLogin, logout]
 }

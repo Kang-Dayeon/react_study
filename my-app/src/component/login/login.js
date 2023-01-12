@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import './login.css'
 import useInput from '../../hooks/useInput';
-import {useAuth, useLogin} from '../../context/AuthContext'
+import {useAuth} from '../../context/AuthContext'
+
 
 const LoginPage = () => {
 
-  const [user,action] = useAuth()
-  const [, onLogin] = useLogin()
+  const [value, action, onLogin, logout] = useAuth()
 
   const [text, setText] = useInput({
     id : "",
@@ -15,7 +15,13 @@ const LoginPage = () => {
   
   useEffect(() => {
     onLogin()
-  },[user])
+  },[value[0]])
+  // useEffect(() => {
+  //   return () => {
+  //     onLogin()
+  //   }
+  // }, [user])
+
   
     return (
         <div className="login-page">

@@ -1,10 +1,9 @@
 import React from 'react'
-import {useAuth, useLogin} from '../../context/AuthContext'
+import {useAuth} from '../../context/AuthContext'
 import './userInfo.css'
 
 const UserInfo = () => {
-  const [user] = useAuth()
-  const [,,logout] = useLogin()
+  const [[user], action, onLogin, logout] = useAuth()
 
   return (
     <div className="user-info__wrap">

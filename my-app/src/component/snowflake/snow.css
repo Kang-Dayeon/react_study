@@ -7,7 +7,7 @@ body::-webkit-scrollbar{
 .button-wrap {
     width: 100vw;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
 .button-wrap button {
     padding: 5px;
