@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import './login.css'
 import useInput from '../../hooks/useInput';
-import {useAuth} from '../../context/AuthContext'
+import {useAuth} from '../../hooks/useAuth'
 
 
 const LoginPage = () => {
