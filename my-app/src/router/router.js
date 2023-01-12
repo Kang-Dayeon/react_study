@@ -19,7 +19,7 @@ const Routers = () => {
   const [value] = useAuth()
   const navigate = useNavigate();
   const login = () => {
-    if(value[2] === true) {
+    if(value.isLogin === true) {
       navigate("/userinfo")
     } else {
       navigate("/")
@@ -27,8 +27,8 @@ const Routers = () => {
   }
   useEffect(() => {
     login()
-    console.log(value[2])
-  }, [value[2]])
+    console.log(value.isLogin)
+  }, [value.isLogin])
   return (
       <>
           <ul className="page-nav">
@@ -36,7 +36,7 @@ const Routers = () => {
             <li><Link to="/counter">Counter</Link></li>
             <li><Link to="/light-room">Light Room</Link></li>
             <li><Link to="/snow">Snow</Link></li>
-            {value[2] ? (
+            {value.isLogin ? (
               <>
               <li><Link to="/userinfo">page1</Link></li>
               <li><Link to="/userinfo02">page2</Link></li>
@@ -51,7 +51,7 @@ const Routers = () => {
             <Route path="/counter" element={<Count/>}></Route>
             <Route path="/light-room" element={<LightRoom/>}></Route>
             <Route path="/snow" element={<Snow/>}></Route>
-            {!value[2] ? (
+            {!value.isLogin ? (
               <Route path="/login" element={<LoginPage/>}></Route>
             ) : (
               <>

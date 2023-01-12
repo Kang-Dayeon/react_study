@@ -6,7 +6,7 @@ import {useAuth} from '../../context/AuthContext'
 
 const LoginPage = () => {
 
-  const [value, action, onLogin, logout] = useAuth()
+  const [value, action, onLogin] = useAuth()
 
   const [text, setText] = useInput({
     id : "",
@@ -15,12 +15,7 @@ const LoginPage = () => {
   
   useEffect(() => {
     onLogin()
-  },[value[0]])
-  // useEffect(() => {
-  //   return () => {
-  //     onLogin()
-  //   }
-  // }, [user])
+  },[value.user])
 
   
     return (

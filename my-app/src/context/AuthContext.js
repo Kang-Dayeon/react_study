@@ -7,7 +7,12 @@ export function AuthProvider({children}) {
     const [user, setUser] = useState([])
     const [isLogin, setIsLogin] = useState(false)
 
-    const value = [user, setUser, isLogin, setIsLogin]
+    const value = {
+        user : user,
+        setUser : setUser,
+        isLogin : isLogin,
+        setIsLogin : setIsLogin,
+    }
 
     return (
       <AuthContext.Provider value={value}>
@@ -18,18 +23,17 @@ export function AuthProvider({children}) {
 
 export function useAuth(){
     const value = useContext(AuthContext)
-    console.log(value)
     const action = (id, pw) => {
-        value[1](...value[0],userData.filter(list => list.loginId === id && list.password === pw))
+        value.setUser(userData.filter(list => list.loginId === id && list.password === pw))
     }
     const onLogin = () => {
-        if(value[0].length > 0) {
-            value[3](true)
+        if(value.user.length > 0) {
+            value.setIsLogin(true)
         }
     }
     const logout = () => {
-        value[1]([])
-        value[3](false)
+        value.setUser([])
+        value.setIsLogin(false)
     }
 
     if(value === undefined){
