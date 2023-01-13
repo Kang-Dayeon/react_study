@@ -5,7 +5,7 @@ import '../../App.css';
 import  './snow.css';
 
 const Snow = () => {
-  const snowNum = Array.from(Array(200), (index) => index + 1);
+  const snowNum = Array.from(Array(100), (index) => index + 1);
   const screenX = window.innerWidth;
   const [bgColor,onChange] = useColorChange('#fff');
   const dropSnow = keyframes`

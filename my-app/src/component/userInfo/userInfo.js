@@ -3,7 +3,7 @@ import {useAuth} from '../../hooks/useAuth'
 import './userInfo.css'
 
 const UserInfo = () => {
-  const [value, , , logout] = useAuth()
+  const [value, ,logout] = useAuth()
   const user = value.user[0]
 
   return (

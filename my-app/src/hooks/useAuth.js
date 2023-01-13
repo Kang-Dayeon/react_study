@@ -1,5 +1,5 @@
 import { userData } from "../data/userData"
-import {useContext} from 'react'
+import {useContext, useEffect} from 'react'
 import {AuthContext} from '../context/AuthContext'
 
 export function useAuth(){
@@ -7,18 +7,16 @@ export function useAuth(){
   const action = (id, pw) => {
     value.setUser(userData.filter(list => list.loginId === id && list.password === pw))
   }
-  const onLogin = () => {
-    if(value.user.length > 0) {
-      value.setIsLogin(true)
-    }
-  }
   const logout = () => {
     value.setUser([])
     value.setIsLogin(false)
   }
-
   if(value === undefined){
     throw new Error('error')
   }
-  return [value, action, onLogin, logout]
+  useEffect(() => {
+    if(value.user.length > 0) value.setIsLogin(true)
+  }, [value.user])
+
+  return [value, action, logout]
 }
