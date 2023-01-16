@@ -5,14 +5,23 @@ import { AuthProvider } from './context/AuthContext';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import rootReducer from './reducers/index';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import Count from './component/count-list/count';
+
+const store = createStore(rootReducer)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <AuthProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </AuthProvider>
+  <Provider store={store}>
+    {/* <AuthProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </AuthProvider> */}
+    <Count />
+  </Provider>
 );
   
 /* <React.StrictMode> : js stricmode와 같음 */
