@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useEffect, useState} from 'react'
 
 export default (initalValue) => {
     const [data, setData] = useState(initalValue)
@@ -10,5 +10,6 @@ export default (initalValue) => {
             [name]: value
         })
     }
+
     return [data, handle]
 }
