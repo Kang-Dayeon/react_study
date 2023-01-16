@@ -9,7 +9,6 @@ export default (initalValue) => {
             ...data,
             [name]: value
         })
-        console.log(data)
     }
 
     return [data, handle]
