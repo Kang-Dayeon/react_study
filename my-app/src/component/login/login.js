@@ -5,11 +5,11 @@ import {useAuth} from '../../hooks/useAuth'
 
 const LoginPage = () => {
 
-  const [, action] = useAuth()
+  const [,action] = useAuth()
 
   const [text, setText] = useInput({
-    id : "",
-    pw: ""
+    loginId : "",
+    password: ""
   })
 
     return (
@@ -17,12 +17,12 @@ const LoginPage = () => {
           <div className="login-page__wrap">
             <h2>Login</h2>
             <form className="login-form">
-              <input name="id" type="text" value={text.id} onChange={setText} placeholder="아이디를 입력해주세요."></input>
-              <input name="pw" type="password" value={text.pw} onChange={setText} placeholder="비밀번호를 입력해주세요."></input>
+              <input name="loginId" type="text" value={text.loginId} onChange={setText} placeholder="아이디를 입력해주세요."></input>
+              <input name="password" type="password" value={text.password} onChange={setText} placeholder="비밀번호를 입력해주세요."></input>
               <button type="button" onClick={() =>
-                (text.id === "") ? alert("아이디를 입력해주세요")
-                : (text.pw === "") ? alert("비밀번호를 입력해주세요")
-                : action(text.id,text.pw)
+                (text.loginId === "") ? alert("아이디를 입력해주세요")
+                : (text.password === "") ? alert("비밀번호를 입력해주세요")
+                : action(text.loginId,text.password)
               }>LOGIN</button>
             </form>
           </div>

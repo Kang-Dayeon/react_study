@@ -16,19 +16,18 @@ import LightRoom from '../component/light-room/lightRoom'
 import Snow from '../component/snowflake/snow'
 
 const Routers = () => {
-  const [value] = useAuth()
+  const [{isLogin}] = useAuth()
   const navigate = useNavigate();
-  const login = () => {
-    if(value.isLogin === true) {
+  const loginMiddleware = () => {
+    if(isLogin === true) {
       navigate("/userinfo")
     } else {
       navigate("/")
     }
   }
   useEffect(() => {
-    login()
-    console.log(value.isLogin)
-  }, [value.isLogin])
+    loginMiddleware()
+  }, [isLogin])
   return (
       <>
           <ul className="page-nav">
@@ -36,7 +35,7 @@ const Routers = () => {
             <li><Link to="/counter">Counter</Link></li>
             <li><Link to="/light-room">Light Room</Link></li>
             <li><Link to="/snow">Snow</Link></li>
-            {value.isLogin ? (
+            {isLogin ? (
               <>
               <li><Link to="/userinfo">page1</Link></li>
               <li><Link to="/userinfo02">page2</Link></li>
@@ -51,7 +50,7 @@ const Routers = () => {
             <Route path="/counter" element={<Count/>}></Route>
             <Route path="/light-room" element={<LightRoom/>}></Route>
             <Route path="/snow" element={<Snow/>}></Route>
-            {!value.isLogin ? (
+            {!isLogin ? (
               <Route path="/login" element={<LoginPage/>}></Route>
             ) : (
               <>

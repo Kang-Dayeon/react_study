@@ -7,10 +7,10 @@ export function AuthProvider({children}) {
     const [isLogin, setIsLogin] = useState(false)
 
     const value = {
-        user : user,
-        setUser : setUser,
-        isLogin : isLogin,
-        setIsLogin : setIsLogin,
+        user,
+        setUser,
+        isLogin,
+        setIsLogin,
     }
 
     return (
