@@ -22,7 +22,7 @@ const Routers = () => {
     if(isLogin === true) {
       navigate("/userinfo")
     } else {
-      navigate("/")
+      navigate("/login")
     }
   }
   useEffect(() => {

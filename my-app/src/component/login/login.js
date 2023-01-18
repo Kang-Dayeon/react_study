@@ -1,15 +1,18 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './login.css'
 import useInput from '../../hooks/useInput';
 import {useAuth} from '../../hooks/useAuth'
 
 const LoginPage = () => {
 
-  const [,action] = useAuth()
+  const [,action,,loginIdPasswordCheck] = useAuth()
 
   const [text, setText] = useInput({
     loginId : "",
     password: ""
+  })
+  useEffect(() => {
+    loginIdPasswordCheck(text.loginId,text.password)
   })
 
     return (

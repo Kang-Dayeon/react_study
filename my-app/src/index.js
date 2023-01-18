@@ -7,15 +7,16 @@ import reportWebVitals from './reportWebVitals';
 import rootReducer from './reducers/index';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import Count from './component/count-list/count';
 
 const store = createStore(rootReducer)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <AuthProvider>
-    <App />
-  </AuthProvider>
+  <Provider store={store}>
+    <AuthProvider>
+      <App />
+    </AuthProvider>
+  </Provider>
 );
   
 /* <React.StrictMode> : js stricmode와 같음 */

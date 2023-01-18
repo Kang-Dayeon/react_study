@@ -10,7 +10,7 @@ const Count = () => {
   // 3. 배열을 복사해서 역방향으로 뿌려주기
   // const [listIndex, setListIndex] = useState(0)
   // const [counter, setCount] = useState(0)
-  // const [newList, setNewList] = useState([])
+  // const [newList, setNewList] = useState([])npm
   // const [list, setList] = useState([])
 
   const dispatch = useDispatch()
