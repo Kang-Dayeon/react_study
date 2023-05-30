@@ -4,7 +4,11 @@ export const DECREASE = 'COUNT/DECREASE'
 export const increaseCount = count => ({ type: INCREASE, count });
 export const decreaseCount = count => ({ type: DECREASE, count });
 
-const initialState = {
+interface ICount {
+	count: number
+}
+
+const initialState: ICount = {
 	count: 0
 };
 

@@ -22,7 +22,7 @@ const Light = () => {
     </>
   );
 }
-
+ㅡ
 const LightChild = (props) => {
   const [childState,setChildState] = useState(props.state)
   const [lightChild, setLightChild] = useState([
